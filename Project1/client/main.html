@@ -1,0 +1,102 @@
+<head>
+  <title>Project Part 1</title>
+</head>
+
+<body>
+  <h1>HTML Page</h1>
+
+  {{> enter}}
+  {{> single}}
+  {{> bulk}}
+
+
+</body>
+
+<template name="enter">
+  <h2>Enter Student Data</h2>
+<div>
+<div class="form_title">Case ID</div>
+<input type="text" id="textcase_id" class="comment_input" required="required">
+</div>
+<div>
+<div class="form_title">Hospital Code</div>
+<input type="text" id="textHospital_Code" class="comment_input" required="required">
+</div>
+<div>
+<div class="form_title">Hospital Type Code</div>
+<input type="text" id="textHospital_type_code" class="comment_input" required="required">
+</div>
+<div>
+<div class="form_title">City Code Hospital</div>
+<input type="text" id="textCity_Code_Hospital" class="comment_input" required="required">
+</div>
+<div>
+<div class="form_title">Hospital Region Code</div>
+<input type="text" id="textHospital_region_code" class="comment_input" required="required">
+</div>
+<div>
+<div class="form_title">Available Beds</div>
+<input type="text" id="textAvailable" class="comment_input" required="required">
+</div>
+<div>
+<div class="form_title">Department</div>
+<input type="text" id="textDepartment" class="comment_input" required="required">
+</div>
+<div>
+<div class="form_title">Ward Type</div>
+<input type="text" id="textWard_Type" class="comment_input" required="required">
+</div>
+<div>
+<div class="form_title">Ward Facility Code</div>
+<input type="text" id="textWard_Facility_Code" class="comment_input" required="required">
+</div>
+<div>
+<div class="form_title">Bed Grade</div>
+<input type="text" id="textBedGrade" class="comment_input" required="required">
+</div>
+<div>
+<div class="form_title">Patient ID</div>
+<input type="text" id="textpatientID" class="comment_input" required="required">
+</div>
+<div>
+<div class="form_title">City Code Patient</div>
+<input type="text" id="textCity_Code_Patient" class="comment_input" required="required">
+</div>
+<div>
+<div class="form_title">Type of Admission</div>
+<input type="text" id="textTypeOfAdmission" class="comment_input" required="required">
+</div>
+<div>
+<div class="form_title">Severity of Illness</div>
+<input type="text" id="textSeverityOfIllness" class="comment_input" required="required">
+</div>
+<div>
+<div class="form_title">Visitors With Patient</div>
+<input type="text" id="textVisitors" class="comment_input" required="required">
+</div>
+<div>
+<div class="form_title">Age</div>
+<input type="text" id="textage" class="comment_input" required="required">
+</div>
+<div>
+<div class="form_title">Admission Deposit</div>
+<input type="text" id="textAdmission_Deposit" class="comment_input" required="required">
+</div>
+<div>
+<div class="form_title">Stay</div>
+<input type="text" id="textStay" class="comment_input" required="required">
+</div>
+</template>
+
+<template name="single">
+  <button type="submit" id="btnQuery">Sequential Upload</button>
+</template> 
+
+<template name="bulk">
+<form action="/action_page.php">
+  <input type="file" id="upload" name="filename">
+  <button type="submit" id="btnQuery2">Bulk Upload</button>
+</form>
+
+</template> 
+
