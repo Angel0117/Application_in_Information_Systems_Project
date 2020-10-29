@@ -6,4 +6,5 @@ import './inputTem.js';
 import './dataviewtem.js';
 import './queryTem.js';
 import './queryResultsTem.js';
-
+import './queryPanel.js';
+import './dashBoard.js';
