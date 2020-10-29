@@ -4,11 +4,28 @@
 
 <body>
   <h1>Home Page</h1>
+  {{> QueryPanel}}
+  {{> DashBoard}}
   {{> InputTemplate}}
   {{> QueryTemplate}}
   {{> QueryResultTemplate}}
   {{> DataViewTemplate}}
-</body> 
+</body>
+
+<template name = "QueryPanel">
+  <div>
+<input type="button" id="btnClient" value="Perform Client Side Count">
+<input type="button" id="btnServer" value="Perform Server Side Count">
+</div>
+</template>
+
+<template name = "DashBoard">
+  <div>
+<textarea id="clientCount" cols="16" rows="5"></textarea>
+<input type="button" id="btnTab" value="Show Tabular Data">
+
+</div>
+</template>
 
 
 <template name="InputTemplate">
@@ -132,8 +149,6 @@
 
       </tbody>
     </table>
-
-
   </div>
 </div>
 </body>
