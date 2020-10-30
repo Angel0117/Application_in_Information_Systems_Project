@@ -7,53 +7,38 @@ Template.DashBoard.onCreated(function DashBoardOnCreated(){
 });
 
 Template.DashBoard.events({    
-    'click #btnTab':function(event){
+    'click #btnTab':function(event, instance){
         console.log("Inside Dashboard init click");
         var collection = "TabularDisplay";
         Meteor.call(collection.toString(), function(err, res){
             if (err) console.log(err);
-            else
-                {
-                console.log("sucessful return");
-                //console.log(res);
-                buildTable(res);
+            console.log("call completed");
+            console.log(res[15]);
+            var col =[];      
+            var lines = jQuery.parseJSON(JSON.stringify(res));      
+            for(var i=0;i<res.length;i++){
+                for(var key in lines[i]){
+                    if (col.indexOf(key) === -1){
+                        col.push(key);
+                    }
+                }            
+            }
+            var table = document.getElementById("myTable");        
+            var tr = table.insertRow(-1);
+
+            for (var i=0; i<lines.length;i++){
+                tr = table.insertRow(-1);
+
+                for (var j=1; j<col.length;j++){
+                    var tabCell = tr.insertCell(-1);
+                    tabCell.innerHTML = lines[i][col[j]];
                 }
+            }
+
         })
     }
 });
 
-function buildTable(result){
-    var col=[];
-    for(var i=0;i<result.length;i++)
-    {
-        for(var key in result[i]){
-    
-            if(col.indexOf(key)===-1){
-                col.push(key);
-            }
-        }
-    }        
-    var table = document.createElement("myTable");        
-    var tr= table.insertRow(-1);
-
-    for(var i=0; i<col.length;i++){
-        var th = document.createElement("th");
-        th.innerHTML = col[i];
-        tr.appendChild(th);
-    }
-
-    for(var i=0; i<result.length; i++){
-        tr = table.insertRow(-1);
-        for(var j=0; j<coll.length;j++){
-            var tabCell = tr.insertCEll(-1);
-            tabCell.innerHTML=result[i][col[j]];
-        }
-
-    }
-};
-
-
 Template.DashBoard.helpers({
 
 });
-
