@@ -13,6 +13,7 @@
 </body>
 
 <template name = "QueryPanel">
+  <h2>Query Panel</h2>
   <div>
 <input type="button" id="btnClient" value="Perform Client Side Count">
 <input type="button" id="btnServer" value="Perform Server Side Count">
@@ -20,10 +21,35 @@
 </template>
 
 <template name = "DashBoard">
+  <h2>Dashboard</h2>
   <div>
 <textarea id="clientCount" cols="16" rows="5"></textarea>
 <input type="button" id="btnTab" value="Show Tabular Data">
-
+<table id="myTable" border="2"> 
+  <thead>
+    <tr>
+      <th>Case ID</th>
+      <th>Hospital Code</th>
+      <th>Hospital Type Code</th>
+      <th>City Code: Hospital</th>
+      <th>Hospital Region Code</th>
+      <th>Availability</th>
+      <th>Department</th>
+      <th>Ward Type</th>
+      <th>Ward Code</th>
+      <th>Bed Grade</th>
+      <th>Patient ID</th>
+      <th>City Code: Patient</th>
+      <th>Admission Type</th>
+      <th>Severity</th>
+      <th>Visitors</th>
+      <th>Age</th>
+      <th>Deposit</th>
+      <th>Stay</th>
+      <th>Patient Type</th>
+    </tr>        
+  </thead>
+</table> 
 </div>
 </template>
 
@@ -120,8 +146,6 @@
   <input type="button" id="btnLoad" value="Generate Table" >
 </div>
 <body>
-<div id="table-wrapper">
-  <div id="table-scroll">
     <table id="tbl1" border=2>
       <thead>
         <tr>
@@ -145,12 +169,7 @@
           <th>Stay</th>
         </tr>        
       </thead>
-      <tbody id="tbody">
-
-      </tbody>
     </table>
-  </div>
-</div>
 </body>
 
 
