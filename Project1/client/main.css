@@ -35,6 +35,15 @@ min-height: 200px;
 
 table{
   table-layout: fixed;
-  min-width: 2000px;
+  min-width: 1500px;
   min-height: 500px;
+  border: solid 1px #DDD;
+  border-collapse: collapse;
+  text-align: center;  
+}
+table tr{
+  background-color: paleturquoise;
+}
+table th{
+  background-color: cadetblue;
 }
