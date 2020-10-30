@@ -46,4 +46,4 @@ Template.QueryPanel.events({
         });
         console.timeEnd("Server Counting");
     },
-});
+}); 
