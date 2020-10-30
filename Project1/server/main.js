@@ -62,6 +62,7 @@ ServerSideCount:function(){
 			db.close();
 		});
 	});
+	
 	MongoClient.connect(url, function(err, db){
 		if (err) throw err;
 		var query="";
@@ -87,7 +88,7 @@ return future.wait();
 },
 
 TabularDisplay:function(){
-	console.log("Inside server Side Count");
+	console.log("Inside Tabular Display");
 	var http = require("http");
 	var MongoClient = require("mongodb").MongoClient;
 	var url = "mongodb://localhost:27017/";
@@ -97,21 +98,20 @@ TabularDisplay:function(){
 		var query="";
 		query = {$and:[{Department:"radiotherapy"}, {"Severity of Illness":"Extreme"}]};
 		console.log("Inside query");
-		console.log(query);
+		//console.log(query);
 		var dbo = db.db("Hospital");
 		dbo.collection("info2").find(query).toArray(function(err, result) {
 			if (err) throw err;
-			var output="";
+/*			var output="";
 			for(var entry in result){
 				var toclean=JSON.stringify(result[entry]);
 				output += toclean + "\n"
 						}			
-			sub= output.length;
-			var final = 100*(sub/main);
-			future.return(final)
+*/			future.return(result)
 			db.close();
 		});
 	});
+	return future.wait(); 
 },
 
 ClientSideCount:function(){
@@ -182,89 +182,30 @@ UploadBulk:function(file){
 	});
 },
 
-
-
-scrapJunk:function(txt){				
-	var junk =[
-		"{", ":", "}", "_id", "case_id", "Hospital_code", "Hospital_type_code",
-		"City_Code_Hospital", "Hopsital_region_code", "Available", "Department",
-		"Ward_Type", "Ward_Facility_Code", "BedGrade", "patientID", "City_Code_Patient",
-		"TypeOfAdmission", "SeverityOfIllness", "Visitors", "Admission_Deposit", "Stay"
-	];
-
-	var expStr = junk.join("|");
-	console.log("expStr");
-
-	console.log(expStr);
-
-	var output = result.replace(new RegExp('\b('+expStr+ ')\b','gi'),'').replace(/\s{2,}/g,'');
-	var arr = output.split(",");
-	return arr;						
-},
-
-//ignore this fucntion, we way overthought this one
 query_table:function(value){
-
-	console.log("Inside query table");
+	console.log("Inside Query_Table");
 	var http = require("http");
 	var MongoClient = require("mongodb").MongoClient;
 	var url = "mongodb://localhost:27017/";
 	var future = new Future();
-	console.log(ids.length);
-	if (ids === undefined || ids.length== 0){
-		MongoClient.connect(url, function(err, db){
-			if (err) throw err;
-			console.log("Inside querya");
-			var dbo = db.db("Hospital");
-			console.log(ids.length);
-			dbo.collection("info1").find().toArray(function(err, result) 
-			{
-				if (err) console.log(err);
-				console.log(result);
-				result.replace(/{/g, "");
-				result.replace(/:/g, "");
-				result.replace(/}/g, "");
-				console.log(result);
-	
-				var outtext = scrapJunk(result)
-				console.log(outtext);
-				ids.push(results[0]);
-				var output=JSON.stringify(result);
-				console.log("RESULT");
-				console.log(result);
-				//console.log(output);		
-				future.return(output);
-				db.close();
-			}
-	
-			);
-		});
-	} //end if
-
-	var array = [];
-
 	MongoClient.connect(url, function(err, db){
 		if (err) throw err;
-		console.log("Inside queryb");
+		var query="";
+		query = {};
+		console.log("Inside query");
+		//console.log(query);
 		var dbo = db.db("Hospital");
-		var cursor = dbo.collection("info1").findOne({"_id":ids.length - 1}).toString(function(err, result) 
-		{
-			array[0] =  cursor;
-			for(var i = 1; i < 10; i++){
-				array[i] = cursor.next();
-				counter++;
-			}//end for
-			ids[counter] = cursor.next();
-			if (err) console.log(err);
-			//console.log(output);		
-			future.return(array);
+		dbo.collection("info1").find(query).toArray(function(err, result) {
+			if (err) throw err;
+/*			var output="";
+			for(var entry in result){
+				var toclean=JSON.stringify(result[entry]);
+				output += toclean + "\n"
+						}			
+*/			future.return(result)
 			db.close();
-		}
-
-		);
+		});
 	});
-
-console.log("finished");
-return future.wait(); 
+	return future.wait(); 
 },
 }) 
