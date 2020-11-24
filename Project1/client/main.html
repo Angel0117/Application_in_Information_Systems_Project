@@ -1,62 +1,16 @@
-<head>
-  <title>Project Part 4</title>
-</head>
-
-<body>
-  <h1>Home Page</h1>
-  {{> QueryPanel}}
-  {{> DashBoard}}
-  {{> InputTemplate}}
-  {{> QueryTemplate}}
-  {{> QueryResultTemplate}}
-  {{> DataViewTemplate}}
-</body>
-
-<template name = "QueryPanel">
-  <h2>Query Panel</h2>
-  <div>
-<input type="button" id="btnClient" value="Perform Client Side Count">
-<input type="button" id="btnServer" value="Perform Server Side Count">
-</div>
-</template>
-
-<template name = "DashBoard">
-  <h2>Dashboard</h2>
-  <div>
-<textarea id="clientCount" cols="16" rows="5"></textarea>
-<input type="button" id="btnTab" value="Show Tabular Data">
-<table id="myTable" border="2"> 
-  <thead>
-    <tr>
-      <th>Case ID</th>
-      <th>Hospital Code</th>
-      <th>Hospital Type Code</th>
-      <th>City Code: Hospital</th>
-      <th>Hospital Region Code</th>
-      <th>Availability</th>
-      <th>Department</th>
-      <th>Ward Type</th>
-      <th>Ward Code</th>
-      <th>Bed Grade</th>
-      <th>Patient ID</th>
-      <th>City Code: Patient</th>
-      <th>Admission Type</th>
-      <th>Severity</th>
-      <th>Visitors</th>
-      <th>Age</th>
-      <th>Deposit</th>
-      <th>Stay</th>
-      <th>Patient Type</th>
-    </tr>        
-  </thead>
-</table> 
-</div>
-</template>
-
 
 <template name="InputTemplate">
-<h2>Input Template</h2>
+<h1>Navigation</h1>
+  <nav>
+    <li><a href="dataView">View Data</a></li>
+    <li><a href="query">Query Page</a></li>
+    <li><a href="queryPanel">Count Functions</a></li>
+  </nav>
+  <h2>Input Template</h2>
   <h3>Enter Student Data</h3>
+<div>
+
+</div>
 <div>
 <div class="form_title">Case ID</div>
 <input type="text" id="textcase_id" class="comment_input" required="required">
@@ -130,98 +84,10 @@
 <input type="text" id="textStay" class="comment_input" required="required">
 </div>
 
-
 <button type="submit" id="btnQuery">Sequential Upload</button>
 <div>
   <input type="file" id="inFile"/>
   <input type="button" id="btnQuery2" value="Bulk Upload"/>
 </div>
-<p>{{counter}} records uploaded</p>
-</template>
-
-
-<template name="DataViewTemplate">
-<h2>Data View Template</h2>
-<div>
-  <input type="button" id="btnLoad" value="Generate Table" >
-</div>
-<body>
-    <table id="tbl1" border=2>
-      <thead>
-        <tr>
-          <th>Case ID</th>
-          <th>Hospital Code</th>
-          <th>Hospital Type Code</th>
-          <th>City Code: Hospital</th>
-          <th>Hospital Region Code</th>
-          <th>Availability</th>
-          <th>Department</th>
-          <th>Ward Type</th>
-          <th>Ward Code</th>
-          <th>Bed Grade</th>
-          <th>Patient ID</th>
-          <th>City Code: Patient</th>
-          <th>Admission Type</th>
-          <th>Severity</th>
-          <th>Visitors</th>
-          <th>Age</th>
-          <th>Deposit</th>
-          <th>Stay</th>
-        </tr>        
-      </thead>
-    </table>
-</body>
-
 
 </template>
-
-
-<template name="QueryTemplate">
-<h2>Query Input Template</h2>
-<h3> Query Database</h3>
-<label for="choose">Choose a Field:</label>
-<form>
-<select name="choose" id="choose">
-   <option value="case_id">Case ID</option>
-   <option value="Hospital_code">Hospital Code</option>
-   <option value="Hospital_type_code">Type Code</option>
-   <option value="City_code_Hospital">City Code</option>
-   <option value="Hospital_region_code">Region Code</option>
-   <option value="Available">Availability</option>
-   <option value="Department">Department</option>
-   <option value="Ward_Type">Ward Type</option>
-   <option value="Ward_Facility_Code">Facility Code</option>
-   <option value="BedGrade">Bed Grade</option>
-   <option value="patientID">Patient ID</option>
-   <option value="City_Code_Patient">Patient Code</option>
-   <option value="TypeOfAdmission">Admission Type</option>
-   <option value="SeverityOfIllness">Severity</option>
-   <option value="Visitors">Visitors Allowed</option>
-   <option value="age">Age</option>
-   <option value="Admission_Deposit">Admission Deposit</option>
-   <option value="Stay">Stay Duration</option>
-</select>
-<div>
-<div class="inputTitle">Enter Search Term</div>
-<input type="text" id="queryinput" class="comment_input" required="required">
-</div>
-<button type="submit" id="submitQuery">Run Query</button>
-<p>{{counter}} Queries Processed</p>
-</form>
-</template>
-
-<template name="QueryResultTemplate">
-<h2>Query Result Template</h2>
-<h3> Query Output</h3>
-<form>
-<label for="textArea"></label>
-<textarea id= "comment_textarea" cols="16" rows="5"></textarea>
-</form>
-</template>
-
-<template name="bulk">
-<form action="/action_page.php">
-  <input type="file" id="upload" name="filename">
-  <button type="submit" id="btnQuery2">Bulk Upload</button>
-</form>
-</template> 

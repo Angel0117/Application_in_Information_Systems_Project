@@ -1,0 +1,70 @@
+<template name="QueryTemplate">
+    <h1>Navigation</h1>
+    <nav>
+        <li><a href="/">Return to Input</a></li>
+
+    </nav>
+    <h2>Query Template</h2>
+    <h3> Query Builder</h3>
+    <label for="choose">Choose a Field:</label>
+    <form>
+    <select name="choose" id="choose">
+       <option value="case_id">Case ID</option>
+       <option value="Hospital_code">Hospital Code</option>
+       <option value="Hospital_type_code">Type Code</option>
+       <option value="City_code_Hospital">City Code</option>
+       <option value="Hospital_region_code">Region Code</option>
+       <option value="Available Extra Rooms in Hospital">Availability</option>
+       <option value="Department">Department</option>
+       <option value="Ward_Type">Ward Type</option>
+       <option value="Ward_Facility_Code">Facility Code</option>
+       <option value="BedGrade">Bed Grade</option>
+       <option value="patientid">Patient ID</option>
+       <option value="City_Code_Patient">Patient Code</option>
+       <option value="Type of Admission">Admission Type</option>
+       <option value="&quot;Severity of Illness&quot;">Severity</option>
+       <option value="Visitors with Patient">Visitors Allowed</option>
+       <option value="Age">Age</option>
+       <option value="Admission_Deposit">Admission Deposit</option>
+       <option value="Stay">Stay Duration</option>
+    </select>
+    <div>
+    <div class="inputTitle">Enter Search Term</div>
+    <input type="text" id="queryinput" class="comment_input" required="required">
+    </div>
+    <button type="submit" id="submitQuery">Run Query</button>
+    <button type="submit" id="lessThan">Query Less Than</button>
+    <button type="submit" id="greaterThan">Query Greater Than</button>
+
+    </form>
+
+    <label for="textArea"></label>
+    <textarea id="comment_textarea" cols="16" rows="5"></textarea>
+    <h3> Query Output</h3>
+<form>
+    <table id="tbl1" border=2>
+        <thead>          
+            <th>Case ID</th>
+            <th>Hospital Code</th>
+            <th>Hospital Type Code</th>
+            <th>City Code: Hospital</th>
+            <th>Hospital Region Code</th>
+            <th>Availability</th>
+            <th>Department</th>
+            <th>Ward Type</th>
+            <th>Ward Code</th>
+            <th>Bed Grade</th>
+            <th>Patient ID</th>
+            <th>City Code: Patient</th>
+            <th>Admission Type</th>
+            <th>Severity</th>
+            <th>Visitors</th>
+            <th>Age</th>
+            <th>Deposit</th>
+            <th>Stay</th>                  
+        </thead>
+      </table>
+      <button type="submit" id="prev">Prev 100</button>
+      <button type="submit" id="next">Next 100</button>
+</form>
+    </template>

@@ -1,16 +1,14 @@
-/*
-QueryPanel Template
-*/
+import { Template } from 'meteor/templating';
+import { Session } from 'meteor/session';
 
-Template.QueryPanel.onCreated(function querypanelOnCreated(){
-
+Router.route('/queryPanel', function() {
+    this.render('ProjectPart5');
 });
 
-Template.QueryPanel.helpers({
-
+Template.ProjectPart5.onCreated(function ProjectPart5TemplateOnCreated() {
 });
 
-Template.QueryPanel.events({
+Template.ProjectPart5.events({
     'click #btnClient':function(event){
         console.time("Client Counting");
         console.log("Inside Client side button click");
@@ -46,4 +44,36 @@ Template.QueryPanel.events({
         });
         console.timeEnd("Server Counting");
     },
-}); 
+
+    'click #btnTab':function(event, instance){
+        console.log("Inside Dashboard init click");
+        var collection = "TabularDisplay";
+        Meteor.call(collection.toString(), function(err, res){
+            if (err) console.log(err);
+            console.log("call completed");
+            console.log(res[15]);
+            var col =[];      
+            var lines = jQuery.parseJSON(JSON.stringify(res));  
+
+            for(var i=0;i<res.length;i++){
+                for(var key in lines[i]){
+                    if (col.indexOf(key) === -1){
+                        col.push(key);
+                    }
+                }            
+            }
+            var table = document.getElementById("myTable");        
+            var tr = table.insertRow(-1);
+
+            for (var i=0; i<lines.length;i++){
+                tr = table.insertRow(-1);
+
+                for (var j=1; j<col.length;j++){
+                    var tabCell = tr.insertCell(-1);
+                    tabCell.innerHTML = lines[i][col[j]];
+                }
+            }
+
+        })
+    }
+});
